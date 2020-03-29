@@ -26,29 +26,31 @@ let store = {
             {id: 2, text: 'Message 2'}
         ]
     },
-    getState() {
-        return this._state;
-    },
     _callSubscriber() {
         console.log('State changed')
     },
-    addPost(postMessage) {
-        let newPost = {
-            id: 5,
-            message: postMessage,
-            likesCount: 0,
-            dislikesCount: 0
-        }
 
-        this._state.profileData.postsData.push(newPost)
-        this._callSubscriber(this._state)
-    },
-    updateNewPostText(newText) {
-        this._state.profileData.newPostData = newText
-        this._callSubscriber(this._state)
+    getState() {
+        return this._state;
     },
     subscribe(observer) {
         this._callSubscriber = observer
+    },
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                message: postMessage,
+                likesCount: 0,
+                dislikesCount: 0
+            }
+
+            this._state.profileData.postsData.push(newPost)
+            this._callSubscriber(this._state)
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profileData.newPostData = action.newText
+            this._callSubscriber(this._state)
+        }
     }
 }
 
