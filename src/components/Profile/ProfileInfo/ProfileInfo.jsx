@@ -6,7 +6,7 @@ const ProfileInfoComponent = () => {
         <div>
             <div>
                 <img
-                    src="https://q-cf.bstatic.com/images/hotel/max1024x768/220/220680927.jpg"
+                    src="https://i.imgur.com/3EWqPHM.png"
                     alt="Beach" />
             </div>
             <div className={s.descriptionBlock}>

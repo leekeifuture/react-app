@@ -1,5 +1,5 @@
 import React from 'react'
-import PostsComponent from './Posts/Posts'
+import PostsComponent from './MyPosts/MyPosts'
 import ProfileInfoComponent from './ProfileInfo/ProfileInfo'
 
 const ProfileComponent = (props) => {

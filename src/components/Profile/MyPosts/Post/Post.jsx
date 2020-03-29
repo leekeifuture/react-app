@@ -7,7 +7,7 @@ const PostComponent = (props) => {
     let dislikesCount = props.dislikesCount
 
     return (
-        <div>
+        <div className={s.item}>
             <img className={s.avatar}
                  src="https://www.w3schools.com/howto/img_avatar.png"
                  alt="Avatar" />

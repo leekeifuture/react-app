@@ -3,7 +3,7 @@ import React from 'react'
 const NewsComponent = () => {
     return (
         <div>
-            News
+            Music
         </div>
     )
 }

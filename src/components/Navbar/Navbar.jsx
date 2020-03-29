@@ -10,7 +10,7 @@ const NavbarComponent = () => {
                     Profile
                 </NavLink>
             </div>
-            <div className={s.item}>
+            <div className={`${s.item} ${s.active}`}>
                 <NavLink to="/dialogs" activeClassName={s.active}>
                     Dialogs
                 </NavLink>

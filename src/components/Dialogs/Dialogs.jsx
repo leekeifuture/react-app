@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './Dialogs.module.css'
-import DialogComponent from './Dialog/Dialog'
+import DialogComponent from './DialogItem/DialogItem'
 import MessageComponent from './Message/Message'
 
 const DialogsComponent = (props) => {
@@ -14,8 +14,12 @@ const DialogsComponent = (props) => {
 
     return (
         <div className={s.dialogs}>
-            {dialogsElements}
-            {messagesElements}
+            <div className={s.dialogsItems}>
+                {dialogsElements}
+            </div>
+            <div className={s.messages}>
+                {messagesElements}
+            </div>
         </div>
     )
 }
