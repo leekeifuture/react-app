@@ -18,9 +18,7 @@ const App = (props) => {
                         dispatch={props.dispatch} />}
                 />
                 <Route path="/dialogs" render={() =>
-                    <DialogsComponent
-                        dialogsData={props.state.dialogsData}
-                        messagesData={props.state.messagesData} />}
+                    <DialogsComponent store={props.store} />}
                 />
             </div>
         </div>

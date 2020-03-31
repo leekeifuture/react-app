@@ -30,12 +30,15 @@ const PostsComponent = (props) => {
         <div className={s.postsBlock}>
             <h3>Posts:</h3>
             <div>
-                <textarea value={props.newPostData}
-                          ref={newPostElement}
-                          onChange={onPostChange} />
-                &nbsp;
-                <input type="button" value="Add post"
-                       onClick={addPost} />
+                <div>
+                    <textarea value={props.newPostData}
+                              ref={newPostElement}
+                              onChange={onPostChange} />
+                </div>
+                <div>
+                    <input type="button" value="Add post"
+                           onClick={addPost} />
+                </div>
             </div>
             <div className={s.posts}>
                 {postsElements}
