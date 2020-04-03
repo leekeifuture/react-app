@@ -7,8 +7,8 @@ const ProfileComponent = (props) => {
         <div>
             <ProfileInfoComponent />
             <PostsComponent
-                postsData={props.profileData.postsData}
-                newPostData={props.profileData.newPostData}
+                postsData={props.profilePage.postsData}
+                newPostData={props.profilePage.newPostData}
                 dispatch={props.dispatch} />
         </div>
     )

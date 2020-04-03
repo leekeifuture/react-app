@@ -4,7 +4,7 @@ import s from './MyPosts.module.css'
 import {
     addPostActionCreator,
     updateNewPostActionCreator
-} from '../../../redux/state'
+} from '../../../redux/profile-reducer'
 
 const PostsComponent = (props) => {
     let postsElements = props.postsData.map(post =>

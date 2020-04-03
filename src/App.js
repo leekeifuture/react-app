@@ -14,7 +14,7 @@ const App = (props) => {
             <div className={s.appWrapperContent}>
                 <Route path="/profile" render={() =>
                     <ProfileComponent
-                        profileData={props.state.profileData}
+                        profilePage={props.state.profilePage}
                         dispatch={props.dispatch} />}
                 />
                 <Route path="/dialogs" render={() =>
