@@ -5,13 +5,13 @@ let initialState = {
     postsData: [
         {
             id: 1,
-            message: 'My first post!',
+            text: 'My first post!',
             likesCount: 12,
             dislikesCount: 1
         },
         {
             id: 2,
-            message: 'Hello world!!!',
+            text: 'Hello world!!!',
             likesCount: 34,
             dislikesCount: 2
         }
@@ -21,9 +21,13 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
     if (action.type === ADD_POST) {
+        let postsData = state.postsData
+        let currentId = postsData[postsData.length - 1]['id']
+        let newId = currentId + 1
+
         let newPost = {
-            id: 5,
-            message: state.newPostData,
+            id: newId,
+            text: state.newPostData,
             likesCount: 0,
             dislikesCount: 0
         }

@@ -2,7 +2,8 @@ import React from 'react'
 import s from './Post.module.css'
 
 const PostComponent = (props) => {
-    let message = props.message
+    let id = props.id
+    let text = props.text
     let likesCount = props.likesCount
     let dislikesCount = props.dislikesCount
 
@@ -11,7 +12,7 @@ const PostComponent = (props) => {
             <img className={s.avatar}
                  src="https://www.w3schools.com/howto/img_avatar.png"
                  alt="Avatar" />
-            <span className={s.message}>{message}</span>
+            <span className={s.message}>{id} | {text}</span>
             <div>
                 <span className={s.like}>
                     <span>Like</span>

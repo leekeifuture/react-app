@@ -3,9 +3,11 @@ import s from './MyPosts.module.css'
 import PostComponent from './Post/Post'
 
 const MyPostsComponent = (props) => {
+    debugger
     let postsElements = props.postsData.map(post =>
         <PostComponent
-            message={post.message}
+            id={post.id}
+            text={post.text}
             likesCount={post.likesCount}
             dislikesCount={post.dislikesCount} />
     )

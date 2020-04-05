@@ -8,13 +8,13 @@ let store = {
             postsData: [
                 {
                     id: 1,
-                    message: 'My first post!',
+                    text: 'My first post!',
                     likesCount: 12,
                     dislikesCount: 1
                 },
                 {
                     id: 2,
-                    message: 'Hello world!!!',
+                    text: 'Hello world!!!',
                     likesCount: 34,
                     dislikesCount: 2
                 }
