@@ -39,7 +39,7 @@ const DialogsComponent = (props) => {
                                   onChange={onNewMessageChange} />
                     </div>
                     <div>
-                        <input type="button" value="Add post"
+                        <input type="button" value="Send message"
                                onClick={onSendMessageClick} />
                     </div>
                 </div>
