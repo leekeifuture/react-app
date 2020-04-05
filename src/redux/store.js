@@ -1,5 +1,5 @@
-import profileReducer from './profile-reducer'
 import dialogsReducer from './dialogs-reducer'
+import profileReducer from './profile-reducer'
 import sidebarReducer from './sidebar-reducer'
 
 let store = {
@@ -31,7 +31,7 @@ let store = {
                 {id: 2, text: 'Message 2'}
             ],
             newMessageBody: ''
-        },
+        }
     },
     _callSubscriber() {
         console.log('State changed')

@@ -5,9 +5,7 @@ const ProfileInfoComponent = () => {
     return (
         <div>
             <div>
-                <img
-                    src="https://i.imgur.com/3EWqPHM.png"
-                    alt="Beach" />
+                <img src="https://i.imgur.com/3EWqPHM.png" alt="Beach" />
             </div>
             <div className={s.descriptionBlock}>
                 ava + description

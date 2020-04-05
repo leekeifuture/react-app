@@ -1,10 +1,10 @@
 import React from 'react'
-import * as serviceWorker from './serviceWorker'
-import store from './redux/redux-store.js'
 import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
 import {BrowserRouter} from 'react-router-dom'
+import App from './App'
+import './index.css'
+import store from './redux/redux-store.js'
+import * as serviceWorker from './serviceWorker'
 
 let rerenderEntireTree = (state) => {
     ReactDOM.render(

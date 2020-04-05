@@ -1,12 +1,8 @@
 import React from 'react'
-import PostComponent from './Post/Post'
 import s from './MyPosts.module.css'
-import {
-    addPostActionCreator,
-    updateNewPostActionCreator
-} from '../../../redux/profile-reducer'
+import PostComponent from './Post/Post'
 
-const PostsComponent = (props) => {
+const MyPostsComponent = (props) => {
     let postsElements = props.postsData.map(post =>
         <PostComponent
             message={post.message}
@@ -16,14 +12,13 @@ const PostsComponent = (props) => {
 
     let newPostElement = React.createRef()
 
-    let addPost = () => {
-        props.dispatch(addPostActionCreator())
+    let onAddPost = () => {
+        props.addPost()
     }
 
     let onPostChange = () => {
         let newText = newPostElement.current.value
-        let action = updateNewPostActionCreator(newText)
-        props.dispatch(action)
+        props.updateNewPostText(newText)
     }
 
     return (
@@ -37,7 +32,7 @@ const PostsComponent = (props) => {
                 </div>
                 <div>
                     <input type="button" value="Add post"
-                           onClick={addPost} />
+                           onClick={onAddPost} />
                 </div>
             </div>
             <div className={s.posts}>
@@ -47,4 +42,4 @@ const PostsComponent = (props) => {
     )
 }
 
-export default PostsComponent
+export default MyPostsComponent

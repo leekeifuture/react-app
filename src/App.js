@@ -1,10 +1,10 @@
 import React from 'react'
+import {Route} from 'react-router-dom'
 import s from './App.module.css'
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import HeaderComponent from './components/Header/Header'
 import NavbarComponent from './components/Navbar/Navbar'
-import DialogsComponent from './components/Dialogs/Dialogs'
 import ProfileComponent from './components/Profile/Profile'
-import {Route} from 'react-router-dom'
 
 const App = (props) => {
     return (
@@ -13,12 +13,10 @@ const App = (props) => {
             <NavbarComponent />
             <div className={s.appWrapperContent}>
                 <Route path="/profile" render={() =>
-                    <ProfileComponent
-                        profilePage={props.state.profilePage}
-                        dispatch={props.dispatch} />}
+                    <ProfileComponent store={props.store} />}
                 />
                 <Route path="/dialogs" render={() =>
-                    <DialogsComponent store={props.store} />}
+                    <DialogsContainer store={props.store} />}
                 />
             </div>
         </div>
