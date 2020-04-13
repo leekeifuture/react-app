@@ -2,11 +2,11 @@ import React from 'react'
 import MyPostsContainer from './MyPosts/MyPostsContainer'
 import ProfileInfoComponent from './ProfileInfo/ProfileInfo'
 
-const ProfileComponent = (props) => {
+const ProfileComponent = () => {
     return (
         <div>
             <ProfileInfoComponent />
-            <MyPostsContainer store={props.store} />
+            <MyPostsContainer />
         </div>
     )
 }
