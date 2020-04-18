@@ -32,10 +32,16 @@ const profileReducer = (state = initialState, action) => {
             dislikesCount: 0
         }
 
-        state.postsData.push(newPost)
-        state.newPostData = ''
+        return {
+            ...state,
+            postsData: [...state.postsData, newPost],
+            newPostData: ''
+        }
     } else if (action.type === UPDATE_NEW_POST_TEXT) {
-        state.newPostData = action.newText
+        return {
+            ...state,
+            newPostData: action.newText
+        }
     }
 
     return state

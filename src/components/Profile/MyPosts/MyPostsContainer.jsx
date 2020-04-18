@@ -1,4 +1,3 @@
-import React from 'react'
 import {connect} from 'react-redux'
 import {
     addPostActionCreator,
@@ -9,7 +8,7 @@ import MyPostsComponent from './MyPosts'
 let mapStateToProps = (state) => {
     return {
         postsData: state.profilePage.postsData,
-        newPostText: state.profilePage.newPostText
+        newPostData: state.profilePage.newPostData
     }
 }
 
@@ -18,7 +17,7 @@ let mapDispatchToProps = (dispatch) => {
         addPost: () => {
             dispatch(addPostActionCreator())
         },
-        updateNewPostText: (newText) => {
+        updateNewPostData: (newText) => {
             let action = updateNewPostActionCreator(newText)
             dispatch(action)
         }
