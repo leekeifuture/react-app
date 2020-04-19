@@ -20,27 +20,30 @@ let initialState = {
 }
 
 const profileReducer = (state = initialState, action) => {
-    if (action.type === ADD_POST) {
-        let postsData = state.postsData
-        let currentId = postsData[postsData.length - 1]['id']
-        let newId = currentId + 1
-
-        let newPost = {
-            id: newId,
-            text: state.newPostData,
-            likesCount: 0,
-            dislikesCount: 0
-        }
-
-        return {
-            ...state,
-            postsData: [...state.postsData, newPost],
-            newPostData: ''
-        }
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
+    if (action.type === UPDATE_NEW_POST_TEXT) {
         return {
             ...state,
             newPostData: action.newText
+        }
+    } else if (action.type === ADD_POST) {
+        let postsData = state.postsData
+        let newPostData = state.newPostData.trim()
+
+        if (newPostData.length > 0) {
+            let currentId = postsData[postsData.length - 1]['id']
+            let newId = currentId + 1
+            let newPost = {
+                id: newId,
+                text: newPostData,
+                likesCount: 0,
+                dislikesCount: 0
+            }
+
+            return {
+                ...state,
+                postsData: [...state.postsData, newPost],
+                newPostData: ''
+            }
         }
     }
 

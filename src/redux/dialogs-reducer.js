@@ -20,14 +20,19 @@ const dialogsReducer = (state = initialState, action) => {
             newMessageBody: action.body
         }
     } else if (action.type === SEND_MESSAGE) {
-        let body = state.newMessageBody
-        let messagesData = state.messagesData
-        let currentId = messagesData[messagesData.length - 1]['id']
-        let newId = currentId + 1
-        return {
-            ...state,
-            messagesData: [...state.messagesData, {id: newId, text: body}],
-            newMessageBody: ''
+        let newMessageText = state.newMessageBody.trim()
+
+        if (newMessageText.length > 0) {
+            let messagesData = state.messagesData
+            let currentId = messagesData[messagesData.length - 1]['id']
+            let newId = currentId + 1
+            let newMessage = {id: newId, text: newMessageText}
+
+            return {
+                ...state,
+                messagesData: [...state.messagesData, newMessage],
+                newMessageBody: ''
+            }
         }
     }
 
