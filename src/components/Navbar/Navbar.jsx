@@ -15,6 +15,11 @@ const NavbarComponent = () => {
                     Dialogs
                 </NavLink>
             </div>
+            <div className={`${s.item} ${s.active}`}>
+                <NavLink to="/users" activeClassName={s.active}>
+                    Users
+                </NavLink>
+            </div>
             <div className={s.item}>
                 <NavLink to="/news" activeClassName={s.active}>
                     News
