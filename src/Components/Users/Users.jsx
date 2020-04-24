@@ -3,20 +3,24 @@ import React from 'react'
 import userPhoto from '../../assets/images/avatar.png'
 import s from './Users.module.css'
 
-let UsersComponent = (props) => {
-    if (props.users.length === 0) {
-        axios
-            .get('https://social-network.samuraijs.com/api/1.0/users')
-            .then((response) => {
-                props.setUsers(response.data.items);
-            }, (error) => {
-            });
+class Users extends React.Component {
+    constructor(props) {
+        super(props)
+
+        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+            .then(
+                (response) => {
+                    this.props.setUsers(response.data.items)
+                }, (error) => {
+                    console.error(error)
+                }
+            )
     }
 
-    return (
-        <div>
-            {
-                props.users.map(user => {
+    render() {
+        return (
+            <div>
+                {this.props.users.map(user => {
                     return (
                         <div key={user.id}>
                             <span>
@@ -30,10 +34,10 @@ let UsersComponent = (props) => {
                                 <div>
                                     {user.followed
                                         ? <button onClick={() => {
-                                            props.unfollow(user.id)
+                                            this.props.unfollow(user.id)
                                         }}>Unfollow</button>
                                         : <button onClick={() => {
-                                            props.follow(user.id)
+                                            this.props.follow(user.id)
                                         }}>Follow</button>
                                     }
                                 </div>
@@ -50,10 +54,10 @@ let UsersComponent = (props) => {
                             </span>
                         </div>
                     )
-                })
-            }
-        </div>
-    )
+                })}
+            </div>
+        )
+    }
 }
 
-export default UsersComponent
+export default Users
