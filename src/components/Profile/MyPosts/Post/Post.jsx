@@ -1,4 +1,5 @@
 import React from 'react'
+import defaultPhoto from '../../../../assets/images/avatar.png'
 import s from './Post.module.css'
 
 const PostComponent = (props) => {
@@ -9,8 +10,8 @@ const PostComponent = (props) => {
 
     return (
         <div className={s.item}>
-            <img className={s.avatar}
-                 src="https://www.w3schools.com/howto/img_avatar.png"
+            <img className={s.userPhoto}
+                 src={defaultPhoto}
                  alt="Avatar" />
             <span className={s.message}>{id} | {text}</span>
             <div>

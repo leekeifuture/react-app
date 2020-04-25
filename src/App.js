@@ -1,11 +1,11 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
 import s from './App.module.css'
-import DialogsContainer from './Components/Dialogs/DialogsContainer'
-import HeaderComponent from './Components/Header/Header'
-import NavbarComponent from './Components/Navbar/Navbar'
-import ProfileComponent from './Components/Profile/Profile'
-import UsersContainer from './Components/Users/UsersContainer'
+import DialogsContainer from './components/Dialogs/DialogsContainer'
+import HeaderComponent from './components/Header/Header'
+import NavbarComponent from './components/Navbar/Navbar'
+import ProfileComponent from './components/Profile/Profile'
+import UsersContainer from './components/Users/UsersContainer'
 
 const App = () => {
     return (
