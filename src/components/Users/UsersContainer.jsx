@@ -9,15 +9,15 @@ import {
     toggleIsFetching,
     unfollow
 } from '../../redux/users-reducer'
-import Preloader from '../common/Preloader/Preloader';
+import Preloader from '../common/Preloader/Preloader'
 import Users from './Users'
 
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsFetching(true)
 
-        let baseUrl = 'https://social-network.samuraijs.com/api/1.0/'
-        axios.get(baseUrl + 'users', {
+        let baseUrl = 'https://social-network.samuraijs.com/api/1.0'
+        axios.get(baseUrl + '/users', {
             params: {
                 page: this.props.currentPage,
                 count: this.props.pageSize
@@ -39,8 +39,8 @@ class UsersContainer extends React.Component {
 
         this.props.setCurrentPage(pageNumber)
 
-        let baseUrl = 'https://social-network.samuraijs.com/api/1.0/'
-        axios.get(baseUrl + 'users', {
+        let baseUrl = 'https://social-network.samuraijs.com/api/1.0'
+        axios.get(baseUrl + '/users', {
             params: {
                 page: pageNumber,
                 count: this.props.pageSize

@@ -1,5 +1,6 @@
 import React from 'react'
-import defaultPhoto from '../../assets/images/avatar.png'
+import {NavLink} from 'react-router-dom'
+import defaultPhoto from '../../assets/images/defaultPhoto.png'
 import s from './Users.module.css'
 
 let Users = (props) => {
@@ -17,6 +18,12 @@ let Users = (props) => {
             : defaultPhoto
     }
 
+    let getInputClassName = (pageNumber) => {
+        return currentPage === pageNumber
+            ? s.selectedPage
+            : null
+    }
+
     function getFollowingState(user) {
         return <> {
             user.followed
@@ -29,50 +36,51 @@ let Users = (props) => {
         } </>
     }
 
-    return (
+    return (<>
         <div>
-            <div>
-                {pagesNumbers.map(pageNumber => {
-                    return (
-                        <input
-                            className={currentPage === pageNumber && s.selectedPage}
-                            type="button"
-                            value={pageNumber}
-                            onClick={(event) => {
-                                props.onPageChanged(pageNumber)
-                            }} />
-                    )
-                })}
-            </div>
-
-            {props.users.map(user => {
+            {pagesNumbers.map(pageNumber => {
                 return (
-                    <div key={user.id}>
-                            <span>
-                                <div>
-                                    <img className={s.userPhoto}
-                                         src={getUserPhoto(user)}
-                                         alt="Avatar" />
-                                </div>
-                                <div>
-                                    {getFollowingState(user)}
-                                </div>
-                            </span>
-                        <span>
-                                <span>
-                                    <div>{user.name}</div>
-                                    <div>{user.status}</div>
-                                </span>
-                                <span>
-                                    <div>{'user.location.country'}</div>
-                                    <div>{'user.location.city'}</div>
-                                </span>
-                            </span>
-                    </div>
+                    <input
+                        className={getInputClassName(pageNumber)}
+                        type="button"
+                        value={pageNumber}
+                        onClick={(event) => {
+                            props.onPageChanged(pageNumber)
+                        }}
+                        key={pageNumber} />
                 )
             })}
         </div>
-    )
+
+        {props.users.map(user => {
+            return (
+                <div key={user.id}>
+                    <span>
+                        <div>
+                            <NavLink to={`/profile/${user.id}`}>
+                                <img className={s.userPhoto}
+                                     src={getUserPhoto(user)}
+                                     alt="User" />
+                            </NavLink>
+                        </div>
+                        <div>
+                            {getFollowingState(user)}
+                        </div>
+                    </span>
+                    <span>
+                        <span>
+                            <div>{user.name}</div>
+                            <div>{user.status}</div>
+                        </span>
+                        <span>
+                            <div>{'user.location.country'}</div>
+                            <div>{'user.location.city'}</div>
+                        </span>
+                    </span>
+                </div>
+            )
+        })}
+    </>)
 }
 
 export default Users

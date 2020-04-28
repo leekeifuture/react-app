@@ -4,7 +4,7 @@ import s from './App.module.css'
 import DialogsContainer from './components/Dialogs/DialogsContainer'
 import HeaderComponent from './components/Header/Header'
 import NavbarComponent from './components/Navbar/Navbar'
-import ProfileComponent from './components/Profile/Profile'
+import ProfileContainer from './components/Profile/ProfileContainer'
 import UsersContainer from './components/Users/UsersContainer'
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
             <NavbarComponent />
             <div className={s.appWrapperContent}>
                 <Route path="/profile" render={() =>
-                    <ProfileComponent />}
+                    <ProfileContainer />}
                 />
                 <Route path="/dialogs" render={() =>
                     <DialogsContainer />}
