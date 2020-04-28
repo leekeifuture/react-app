@@ -13,7 +13,7 @@ const App = () => {
             <HeaderComponent />
             <NavbarComponent />
             <div className={s.appWrapperContent}>
-                <Route path="/profile" render={() =>
+                <Route path="/profile/:userId?" render={() =>
                     <ProfileContainer />}
                 />
                 <Route path="/dialogs" render={() =>
