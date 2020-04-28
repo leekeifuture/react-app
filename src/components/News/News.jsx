@@ -1,11 +1,9 @@
 import React from 'react'
 
 const NewsComponent = () => {
-    return (
-        <div>
-            News
-        </div>
-    )
+    return (<>
+        News
+    </>)
 }
 
 export default NewsComponent

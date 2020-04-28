@@ -1,5 +1,5 @@
 import React from 'react'
-import defaultPhoto from '../../../../assets/images/avatar.png'
+import defaultPhoto from '../../../../assets/images/defaultPhoto.png'
 import s from './Post.module.css'
 
 const PostComponent = (props) => {
@@ -12,7 +12,7 @@ const PostComponent = (props) => {
         <div className={s.item}>
             <img className={s.userPhoto}
                  src={defaultPhoto}
-                 alt="Avatar" />
+                 alt="User" />
             <span className={s.message}>{id} | {text}</span>
             <div>
                 <span className={s.like}>

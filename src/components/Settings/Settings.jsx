@@ -1,11 +1,9 @@
 import React from 'react'
 
 const SettingsComponent = () => {
-    return (
-        <div>
-            Settings
-        </div>
-    )
+    return (<>
+        Settings
+    </>)
 }
 
 export default SettingsComponent

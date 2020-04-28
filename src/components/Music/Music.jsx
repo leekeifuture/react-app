@@ -1,11 +1,9 @@
 import React from 'react'
 
-const NewsComponent = () => {
-    return (
-        <div>
-            Music
-        </div>
-    )
+const MusicComponent = () => {
+    return (<>
+        Music
+    </>)
 }
 
-export default NewsComponent
+export default MusicComponent
