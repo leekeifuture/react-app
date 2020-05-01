@@ -1,6 +1,6 @@
-import * as axios from 'axios'
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import {socialNetworkApi} from '../../api/socialNetworkApi'
 import defaultPhoto from '../../assets/images/defaultPhoto.png'
 import s from './Users.module.css'
 
@@ -25,44 +25,38 @@ let Users = (props) => {
             : null
     }
 
-    function getFollowingState(user) {
+    let followUser = (userId) => {
+        socialNetworkApi.followUser(userId)
+            .then(data => {
+                    if (!data.resultCode) {
+                        props.follow(userId)
+                    }
+                }, error => {
+                    console.error(error)
+                }
+            )
+    }
+
+    let unfollowUser = (userId) => {
+        socialNetworkApi.unfollowUser(userId)
+            .then(data => {
+                    if (!data.resultCode) {
+                        props.unfollow(userId)
+                    }
+                }, error => {
+                    console.error(error)
+                }
+            )
+    }
+
+    let getFollowingState = (user) => {
         return (<> {
             user.followed
                 ? <button onClick={() => {
-
-                    let baseUrl = 'https://social-network.samuraijs.com/api/1.0'
-                    axios.delete(baseUrl + `/unfollow/${user.id}`, {
-                        headers: {
-                            'API-KEY': ''
-                        }
-                    })
-                        .then(response => {
-                                if (!response.data.resultCode) {
-                                    props.unfollow(user.id)
-                                }
-                            }, error => {
-                                console.error(error)
-                            }
-                        )
-
+                    unfollowUser(user.id)
                 }}>Unfollow</button>
                 : <button onClick={() => {
-
-                    let baseUrl = 'https://social-network.samuraijs.com/api/1.0'
-                    axios.post(baseUrl + `/follow/${user.id}`, {}, {
-                        headers: {
-                            'API-KEY': ''
-                        }
-                    })
-                        .then(response => {
-                                if (!response.data.resultCode) {
-                                    props.follow(user.id)
-                                }
-                            }, error => {
-                                console.error(error)
-                            }
-                        )
-
+                    followUser(user.id)
                 }}>Follow</button>
         } </>)
     }
