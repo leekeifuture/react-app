@@ -1,3 +1,4 @@
+import * as axios from 'axios'
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 import defaultPhoto from '../../assets/images/defaultPhoto.png'
@@ -25,15 +26,47 @@ let Users = (props) => {
     }
 
     function getFollowingState(user) {
-        return <> {
+        return (<> {
             user.followed
                 ? <button onClick={() => {
-                    props.unfollow(user.id)
+
+                    let baseUrl = 'https://social-network.samuraijs.com/api/1.0'
+                    axios.delete(baseUrl + `/unfollow/${user.id}`, {
+                        headers: {
+                            'API-KEY': ''
+                        }
+                    })
+                        .then(
+                            (response) => {
+                                if (!response.data.resultCode) {
+                                    props.unfollow(user.id)
+                                }
+                            }, (error) => {
+                                console.error(error)
+                            }
+                        )
+
                 }}>Unfollow</button>
                 : <button onClick={() => {
-                    props.follow(user.id)
+
+                    let baseUrl = 'https://social-network.samuraijs.com/api/1.0'
+                    axios.post(baseUrl + `/follow/${user.id}`, {}, {
+                        headers: {
+                            'API-KEY': ''
+                        }
+                    })
+                        .then(
+                            (response) => {
+                                if (!response.data.resultCode) {
+                                    props.follow(user.id)
+                                }
+                            }, (error) => {
+                                console.error(error)
+                            }
+                        )
+
                 }}>Follow</button>
-        } </>
+        } </>)
     }
 
     return (<>
