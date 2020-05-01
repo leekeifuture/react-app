@@ -1,6 +1,6 @@
-import * as axios from 'axios'
 import React from 'react'
 import {connect} from 'react-redux'
+import {socialNetworkApi} from '../../api/socialNetworkApi'
 import {
     follow,
     setCurrentPage,
@@ -16,22 +16,16 @@ class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsFetching(true)
 
-        let baseUrl = 'https://social-network.samuraijs.com/api/1.0'
-        axios.get(baseUrl + '/users', {
-            params: {
-                page: this.props.currentPage,
-                count: this.props.pageSize
-            }
-        }).then(
-            (response) => {
-                this.props.setUsers(response.data.items)
-                this.props.setTotalUsersCount(response.data.totalCount)
+        socialNetworkApi.getUsers(this.props.currentPage, this.props.pageSize)
+            .then(data => {
+                    this.props.setUsers(data.items)
+                    this.props.setTotalUsersCount(data.totalCount)
 
-                this.props.toggleIsFetching(false)
-            }, (error) => {
-                console.error(error)
-            }
-        )
+                    this.props.toggleIsFetching(false)
+                }, error => {
+                    console.error(error)
+                }
+            )
     }
 
     onPageChanged = (pageNumber) => {
@@ -39,21 +33,15 @@ class UsersContainer extends React.Component {
 
         this.props.setCurrentPage(pageNumber)
 
-        let baseUrl = 'https://social-network.samuraijs.com/api/1.0'
-        axios.get(baseUrl + '/users', {
-            params: {
-                page: pageNumber,
-                count: this.props.pageSize
-            }
-        }).then(
-            (response) => {
-                this.props.setUsers(response.data.items)
+        socialNetworkApi.getUsers(pageNumber, this.props.pageSize)
+            .then(data => {
+                    this.props.setUsers(data.items)
 
-                this.props.toggleIsFetching(false)
-            }, (error) => {
-                console.error(error)
-            }
-        )
+                    this.props.toggleIsFetching(false)
+                }, error => {
+                    console.error(error)
+                }
+            )
     }
 
     render() {

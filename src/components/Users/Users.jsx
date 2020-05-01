@@ -36,12 +36,11 @@ let Users = (props) => {
                             'API-KEY': ''
                         }
                     })
-                        .then(
-                            (response) => {
+                        .then(response => {
                                 if (!response.data.resultCode) {
                                     props.unfollow(user.id)
                                 }
-                            }, (error) => {
+                            }, error => {
                                 console.error(error)
                             }
                         )
@@ -55,12 +54,11 @@ let Users = (props) => {
                             'API-KEY': ''
                         }
                     })
-                        .then(
-                            (response) => {
+                        .then(response => {
                                 if (!response.data.resultCode) {
                                     props.follow(user.id)
                                 }
-                            }, (error) => {
+                            }, error => {
                                 console.error(error)
                             }
                         )

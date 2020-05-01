@@ -12,9 +12,9 @@ class ProfileContainer extends React.Component {
             ? this.props.match.params.userId
             : 2
         axios.get(baseUrl + `/profile/${userId}`)
-            .then((response) => {
+            .then(response => {
                     this.props.setUserProfile(response.data)
-                }, (error) => {
+                }, error => {
                     console.error(error)
                 }
             )

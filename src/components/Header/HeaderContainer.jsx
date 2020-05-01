@@ -10,13 +10,12 @@ class HeaderContainer extends React.Component {
         axios.get(baseUrl + '/auth/me', {
             withCredentials: true
         })
-            .then(
-                (response) => {
+            .then(response => {
                     if (response.data.resultCode === 0) {
                         let {id, login, email} = response.data.data
                         this.props.setAuthUserData(id, login, email)
                     }
-                }, (error) => {
+                }, error => {
                     console.error(error)
                 }
             )
