@@ -9,7 +9,7 @@ const MyPostsComponent = (props) => {
             text={post.text}
             likesCount={post.likesCount}
             dislikesCount={post.dislikesCount}
-            key={post.id}/>
+            key={post.id} />
     )
 
     let newPostElement = React.createRef()

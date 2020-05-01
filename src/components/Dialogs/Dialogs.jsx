@@ -11,7 +11,8 @@ const DialogsComponent = (props) => {
     )
 
     let messagesElements = state.messagesData.map(message =>
-        <MessageComponent id={message.id} text={message.text} key={message.id} />
+        <MessageComponent id={message.id} text={message.text}
+                          key={message.id} />
     )
 
     let newMessageBody = state.newMessageBody
