@@ -26,11 +26,13 @@ let Users = (props) => {
     }
 
     let followUser = (userId) => {
+        props.toggleIsFollowing(true)
         socialNetworkApi.followUser(userId)
             .then(data => {
                     if (!data.resultCode) {
                         props.follow(userId)
                     }
+                    props.toggleIsFollowing(false)
                 }, error => {
                     console.error(error)
                 }
@@ -38,11 +40,13 @@ let Users = (props) => {
     }
 
     let unfollowUser = (userId) => {
+        props.toggleIsFollowing(true)
         socialNetworkApi.unfollowUser(userId)
             .then(data => {
                     if (!data.resultCode) {
                         props.unfollow(userId)
                     }
+                    props.toggleIsFollowing(false)
                 }, error => {
                     console.error(error)
                 }

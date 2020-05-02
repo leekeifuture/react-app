@@ -1,7 +1,11 @@
 import * as axios from 'axios'
 
 const axiosInstance = axios.create({
-    baseURL: 'https://social-network.samuraijs.com/api/1.0'
+    baseURL: 'https://social-network.samuraijs.com/api/1.0',
+    withCredentials: true,
+    headers: {
+        'API-KEY': process.env.REACT_APP_API_KEY
+    }
 })
 
 export const socialNetworkApi = {
@@ -18,13 +22,11 @@ export const socialNetworkApi = {
             .then(response => response.data)
     },
     followUser(userId) {
-        return axiosInstance.post(`/follow/${userId}`, {}, {
-            headers: {'API-KEY': ''}
-        }).then(response => response.data)
+        return axiosInstance.post(`/follow/${userId}`)
+            .then(response => response.data)
     },
     unfollowUser(userId) {
-        return axiosInstance.post(`/unfollow/${userId}`, {}, {
-            headers: {'API-KEY': ''}
-        }).then(response => response.data)
+        return axiosInstance.delete(`/follow/${userId}`)
+            .then(response => response.data)
     }
 }
