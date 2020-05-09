@@ -10,7 +10,7 @@ const axiosInstance = axios.create({
 
 export const socialNetworkApi = {
     authMe() {
-        return axiosInstance.get('/auth/me', {withCredentials: true})
+        return axiosInstance.get('/auth/me')
             .then(response => response.data)
     },
     getUsers(page = 1, count = 10) {

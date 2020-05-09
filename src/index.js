@@ -4,7 +4,7 @@ import {Provider} from 'react-redux'
 import {BrowserRouter} from 'react-router-dom'
 import App from './App'
 import './index.css'
-import store from './redux/redux-store.js'
+import store from './redux/redux-store'
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
@@ -14,7 +14,8 @@ ReactDOM.render(
                 <App />
             </Provider>
         </BrowserRouter>
-    </React.StrictMode>, document.getElementById('root')
+    </React.StrictMode>,
+    document.getElementById('root')
 )
 
 serviceWorker.unregister()

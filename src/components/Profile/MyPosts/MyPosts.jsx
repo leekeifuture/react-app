@@ -9,7 +9,8 @@ const MyPostsComponent = (props) => {
             text={post.text}
             likesCount={post.likesCount}
             dislikesCount={post.dislikesCount}
-            key={post.id} />
+            key={post.id}
+        />
     )
 
     let newPostElement = React.createRef()
@@ -30,11 +31,13 @@ const MyPostsComponent = (props) => {
                 <div>
                     <textarea value={props.newPostData}
                               ref={newPostElement}
-                              onChange={onPostChange} />
+                              onChange={onPostChange}
+                    />
                 </div>
                 <div>
                     <input type="button" value="Add post"
-                           onClick={onAddPost} />
+                           onClick={onAddPost}
+                    />
                 </div>
             </div>
             <div className={s.posts}>

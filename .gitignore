@@ -48,7 +48,7 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iws
 *.iml
 *.ipr
@@ -146,7 +146,7 @@ prodDb.*
 ### Logs ###
 stacktrace.log
 test/reports
-logs
+logs/
 
 ### Plugin release files ###
 plugin.xml
@@ -154,9 +154,6 @@ plugin.xml
 ### Older plugin install locations ###
 plugins
 web-app/plugins
-
-### "temporary" build files ###
-target
 
 ### Other ###
 *#

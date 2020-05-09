@@ -26,13 +26,13 @@ let Users = (props) => {
     }
 
     let followUser = (userId) => {
-        props.toggleIsFollowing(true)
+        props.addToFollowingUsers(true, userId)
         socialNetworkApi.followUser(userId)
             .then(data => {
                     if (!data.resultCode) {
                         props.follow(userId)
                     }
-                    props.toggleIsFollowing(false)
+                    props.addToFollowingUsers(false, userId)
                 }, error => {
                     console.error(error)
                 }
@@ -40,28 +40,34 @@ let Users = (props) => {
     }
 
     let unfollowUser = (userId) => {
-        props.toggleIsFollowing(true)
+        props.addToFollowingUsers(true, userId)
         socialNetworkApi.unfollowUser(userId)
             .then(data => {
                     if (!data.resultCode) {
                         props.unfollow(userId)
                     }
-                    props.toggleIsFollowing(false)
+                    props.addToFollowingUsers(false, userId)
                 }, error => {
                     console.error(error)
                 }
             )
     }
 
-    let getFollowingState = (user) => {
+    let getFollowingButton = (user) => {
         return (<> {
             user.followed
-                ? <button onClick={() => {
-                    unfollowUser(user.id)
-                }}>Unfollow</button>
-                : <button onClick={() => {
-                    followUser(user.id)
-                }}>Follow</button>
+                ? <button
+                    disabled={props.followingUsers.some(userId => userId === user.id)}
+                    onClick={() => {
+                        unfollowUser(user.id)
+                    }}>Unfollow
+                </button>
+                : <button
+                    disabled={props.followingUsers.some(userId => userId === user.id)}
+                    onClick={() => {
+                        followUser(user.id)
+                    }}>Follow
+                </button>
         } </>)
     }
 
@@ -93,7 +99,7 @@ let Users = (props) => {
                             </NavLink>
                         </div>
                         <div>
-                            {getFollowingState(user)}
+                            {getFollowingButton(user)}
                         </div>
                     </span>
                     <span>
