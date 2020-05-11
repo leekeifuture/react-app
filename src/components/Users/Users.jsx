@@ -25,14 +25,14 @@ let Users = (props) => {
             user.followed
                 ? <button
                     disabled={props.followingUsers.some(userId => userId === user.id)}
-                    onClick={() => {
+                    onClick={(event) => {
                         props.unfollowUser(user.id)
                     }}>
                     Unfollow
                 </button>
                 : <button
                     disabled={props.followingUsers.some(userId => userId === user.id)}
-                    onClick={() => {
+                    onClick={(event) => {
                         props.followUser(user.id)
                     }}>
                     Follow
