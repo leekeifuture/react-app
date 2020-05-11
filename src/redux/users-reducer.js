@@ -1,3 +1,5 @@
+import {socialNetworkApi} from '../api/socialNetworkApi'
+
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
@@ -88,5 +90,54 @@ export const addToFollowingUsers = (isFetching, userId) => ({
     isFetching,
     userId
 })
+
+export const getUsers = (currentPage, pageSize) => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true))
+        dispatch(setCurrentPage(currentPage))
+        socialNetworkApi.getUsers(currentPage, pageSize)
+            .then(data => {
+                    dispatch(setUsers(data.items))
+                    dispatch(setTotalUsersCount(data.totalCount))
+
+                    dispatch(toggleIsFetching(false))
+                }, error => {
+                    console.error(error)
+                }
+            )
+    }
+}
+
+export const followUser = (userId) => {
+    return (dispatch) => {
+        dispatch(addToFollowingUsers(true, userId))
+        socialNetworkApi.followUser(userId)
+            .then(data => {
+                    if (!data.resultCode) {
+                        dispatch(follow(userId))
+                    }
+                    dispatch(addToFollowingUsers(false, userId))
+                }, error => {
+                    console.error(error)
+                }
+            )
+    }
+}
+
+export const unfollowUser = (userId) => {
+    return (dispatch) => {
+        dispatch(addToFollowingUsers(true, userId))
+        socialNetworkApi.unfollowUser(userId)
+            .then(data => {
+                    if (!data.resultCode) {
+                        dispatch(unfollow(userId))
+                    }
+                    dispatch(addToFollowingUsers(false, userId))
+                }, error => {
+                    console.error(error)
+                }
+            )
+    }
+}
 
 export default usersReducer

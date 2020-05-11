@@ -1,12 +1,13 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="react-app" type="js.build_tools.npm">
-    <package-json value="$PROJECT_DIR$/package.json" />
-    <command value="run" />
-    <scripts>
-      <script value="start" />
-    </scripts>
-    <node-interpreter value="$USER_HOME$/.nvm/versions/node/v13.7.0/bin/node" />
-    <envs />
-    <method v="2" />
-  </configuration>
+    <configuration name="react-app" default="false" type="js.build_tools.npm">
+        <command value="run" />
+        <envs />
+        <method v="2" />
+        <node-interpreter
+            value="$USER_HOME$/.nvm/versions/node/v13.7.0/bin/node" />
+        <package-json value="$PROJECT_DIR$/package.json" />
+        <scripts>
+            <script value="start" />
+        </scripts>
+    </configuration>
 </component>
