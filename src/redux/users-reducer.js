@@ -107,7 +107,6 @@ export const getUsers = (currentPage, pageSize) => {
             )
     }
 }
-
 export const followUser = (userId) => {
     return (dispatch) => {
         dispatch(addToFollowingUsers(true, userId))
@@ -123,7 +122,6 @@ export const followUser = (userId) => {
             )
     }
 }
-
 export const unfollowUser = (userId) => {
     return (dispatch) => {
         dispatch(addToFollowingUsers(true, userId))
