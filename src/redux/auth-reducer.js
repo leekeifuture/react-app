@@ -1,3 +1,5 @@
+import {socialNetworkApi} from '../api/socialNetworkApi'
+
 const SET_USER_DATA = 'SET_USER_DATA'
 
 let initialState = {
@@ -23,5 +25,20 @@ export const setAuthUserData = (userId, login, email) => ({
     type: SET_USER_DATA,
     data: {userId, login, email}
 })
+
+export const authMe = () => {
+    return (dispatch) => {
+        socialNetworkApi.authMe()
+            .then(data => {
+                    if (data.resultCode === 0) {
+                        let {id, login, email} = data.data
+                        dispatch(setAuthUserData(id, login, email))
+                    }
+                }, error => {
+                    console.error(error)
+                }
+            )
+    }
+}
 
 export default authReducer
