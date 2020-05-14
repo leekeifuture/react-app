@@ -25,16 +25,12 @@ let Users = (props) => {
             user.followed
                 ? <button
                     disabled={props.followingUsers.some(userId => userId === user.id)}
-                    onClick={(event) => {
-                        props.unfollowUser(user.id)
-                    }}>
+                    onClick={event => props.unfollowUser(user.id)}>
                     Unfollow
                 </button>
                 : <button
                     disabled={props.followingUsers.some(userId => userId === user.id)}
-                    onClick={(event) => {
-                        props.followUser(user.id)
-                    }}>
+                    onClick={event => props.followUser(user.id)}>
                     Follow
                 </button>
         } </>)
@@ -48,9 +44,7 @@ let Users = (props) => {
                         className={getInputClassName(pageNumber)}
                         type="button"
                         value={pageNumber}
-                        onClick={(event) => {
-                            props.onPageChanged(pageNumber)
-                        }}
+                        onClick={event => props.onPageChanged(pageNumber)}
                         key={pageNumber} />
                 )
             })}

@@ -22,11 +22,6 @@ const DialogsComponent = (props) => {
         props.sendMessage()
     }
 
-    let onNewMessageChange = (event) => {
-        let body = event.target.value
-        props.updateNewMessageBody(body)
-    }
-
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
@@ -38,7 +33,8 @@ const DialogsComponent = (props) => {
                     <div>
                         <textarea placeholder="Enter new message"
                                   value={newMessageBody}
-                                  onChange={onNewMessageChange} />
+                                  onChange={event =>
+                                      props.updateNewMessageBody(event.target.value)} />
                     </div>
                     <div>
                         <input type="button" value="Send message"
