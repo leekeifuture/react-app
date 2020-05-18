@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
+import {compose} from 'redux'
 import {socialNetworkApi} from '../../api/socialNetworkApi'
 import {withAuthRedirect} from '../../hoc/withAuthRedirect'
 import {setUserProfile} from '../../redux/profile-reducer'
@@ -35,6 +36,9 @@ const mapDispatchToProps = {
     setUserProfile
 }
 
-const ProfileRedirectComponent = withAuthRedirect(ProfileContainer)
-
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfileRedirectComponent))
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withRouter,
+    withAuthRedirect
+)
+(ProfileContainer)
