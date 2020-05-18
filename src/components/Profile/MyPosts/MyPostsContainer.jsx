@@ -5,20 +5,20 @@ import {
 } from '../../../redux/profile-reducer'
 import MyPostsComponent from './MyPosts'
 
-let mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
         postsData: state.profilePage.postsData,
         newPostData: state.profilePage.newPostData
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         addPost: () => {
             dispatch(addPostActionCreator())
         },
         updateNewPostData: (newText) => {
-            let action = updateNewPostActionCreator(newText)
+            const action = updateNewPostActionCreator(newText)
             dispatch(action)
         }
     }

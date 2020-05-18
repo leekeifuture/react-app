@@ -3,7 +3,7 @@ import s from './MyPosts.module.css'
 import PostComponent from './Post/Post'
 
 const MyPostsComponent = (props) => {
-    let postsElements = props.postsData.map(post =>
+    const postsElements = props.postsData.map(post =>
         <PostComponent
             id={post.id}
             text={post.text}
@@ -13,14 +13,10 @@ const MyPostsComponent = (props) => {
         />
     )
 
-    let newPostElement = React.createRef()
+    const newPostElement = React.createRef()
 
-    let onAddPost = () => {
-        props.addPost()
-    }
-
-    let onPostChange = () => {
-        let newText = newPostElement.current.value
+    const onPostChange = () => {
+        const newText = newPostElement.current.value
         props.updateNewPostData(newText)
     }
 
@@ -36,7 +32,7 @@ const MyPostsComponent = (props) => {
                 </div>
                 <div>
                     <input type="button" value="Add post"
-                           onClick={onAddPost}
+                           onClick={props.addPost()}
                     />
                 </div>
             </div>

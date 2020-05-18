@@ -8,7 +8,7 @@ import Profile from './Profile'
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
-        let userId = this.props.match.params.userId
+        const userId = this.props.match.params.userId
             ? this.props.match.params.userId
             : 2
         socialNetworkApi.getProfileData(userId)

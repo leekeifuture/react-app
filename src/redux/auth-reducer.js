@@ -2,7 +2,7 @@ import {socialNetworkApi} from '../api/socialNetworkApi'
 
 const SET_USER_DATA = 'SET_USER_DATA'
 
-let initialState = {
+const initialState = {
     isAuth: false,
     userId: null,
     email: null,
@@ -31,7 +31,7 @@ export const authMe = () => {
         socialNetworkApi.authMe()
             .then(data => {
                     if (data.resultCode === 0) {
-                        let {id, login, email} = data.data
+                        const {id, login, email} = data.data
                         dispatch(setAuthUserData(id, login, email))
                     }
                 }, error => {

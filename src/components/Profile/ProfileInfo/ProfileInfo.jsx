@@ -8,7 +8,7 @@ const ProfileInfo = (props) => {
         return <Preloader />
     }
 
-    let getUserPhoto = (user) => {
+    const getUserPhoto = (user) => {
         return user.photos.large != null
             ? user.photos.large
             : defaultPhoto

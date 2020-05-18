@@ -6,7 +6,7 @@ import profileReducer from './profile-reducer'
 import sidebarReducer from './sidebar-reducer'
 import usersReducer from './users-reducer'
 
-let reducers = combineReducers({
+const reducers = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     usersPage: usersReducer,
@@ -14,7 +14,7 @@ let reducers = combineReducers({
     authPage: authReducer
 })
 
-let store = createStore(reducers, applyMiddleware(thunkMiddleware))
+const store = createStore(reducers, applyMiddleware(thunkMiddleware))
 
 window.store = store
 

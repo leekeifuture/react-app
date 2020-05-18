@@ -1,7 +1,7 @@
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
 const SEND_MESSAGE = 'SEND_MESSAGE'
 
-let initialState = {
+const initialState = {
     dialogsData: [
         {id: 1, name: 'Vasya'},
         {id: 2, name: 'Kolya'}
@@ -20,13 +20,13 @@ const dialogsReducer = (state = initialState, action) => {
             newMessageBody: action.body
         }
     } else if (action.type === SEND_MESSAGE) {
-        let newMessageText = state.newMessageBody.trim()
+        const newMessageText = state.newMessageBody.trim()
 
         if (newMessageText.length > 0) {
-            let messagesData = state.messagesData
-            let currentId = messagesData[messagesData.length - 1]['id']
-            let newId = currentId + 1
-            let newMessage = {id: newId, text: newMessageText}
+            const messagesData = state.messagesData
+            const currentId = messagesData[messagesData.length - 1]['id']
+            const newId = currentId + 1
+            const newMessage = {id: newId, text: newMessageText}
 
             return {
                 ...state,

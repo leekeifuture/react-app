@@ -2,7 +2,7 @@ const ADD_POST = 'ADD_POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
 
-let initialState = {
+const initialState = {
     postsData: [
         {
             id: 1,
@@ -28,13 +28,13 @@ const profileReducer = (state = initialState, action) => {
             newPostData: action.newText
         }
     } else if (action.type === ADD_POST) {
-        let postsData = state.postsData
-        let newPostData = state.newPostData.trim()
+        const postsData = state.postsData
+        const newPostData = state.newPostData.trim()
 
         if (newPostData.length > 0) {
-            let currentId = postsData[postsData.length - 1]['id']
-            let newId = currentId + 1
-            let newPost = {
+            const currentId = postsData[postsData.length - 1]['id']
+            const newId = currentId + 1
+            const newPost = {
                 id: newId,
                 text: newPostData,
                 likesCount: 0,

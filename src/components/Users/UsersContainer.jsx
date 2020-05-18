@@ -38,7 +38,7 @@ class UsersContainer extends React.Component {
     }
 }
 
-let mapStateToProps = (state) => ({
+const mapStateToProps = (state) => ({
     users: state.usersPage.users,
     pageSize: state.usersPage.pageSize,
     totalUsersCount: state.usersPage.totalUsersCount,
@@ -47,7 +47,7 @@ let mapStateToProps = (state) => ({
     followingUsers: state.usersPage.followingUsers
 })
 
-let mapDispatchToProps = {
+const mapDispatchToProps = {
     addToFollowingUsers,
     getUsers,
     followUser,

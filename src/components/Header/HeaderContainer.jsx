@@ -15,12 +15,12 @@ class HeaderContainer extends React.Component {
     }
 }
 
-let mapStateToProps = (state) => ({
+const mapStateToProps = (state) => ({
     isAuth: state.authPage.isAuth,
     login: state.authPage.login
 })
 
-let mapDispatchToProps = {
+const mapDispatchToProps = {
     authMe
 }
 

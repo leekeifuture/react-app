@@ -3,24 +3,24 @@ import {NavLink} from 'react-router-dom'
 import defaultPhoto from '../../assets/images/defaultPhoto.png'
 import s from './Users.module.css'
 
-let Users = (props) => {
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
-    let pagesNumbers = Array(pagesCount).fill()
+const Users = (props) => {
+    const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
+    const pagesNumbers = Array(pagesCount).fill()
         .map((_, number) => number + 1)
 
-    let getUserPhoto = (user) => {
+    const getUserPhoto = (user) => {
         return user.photos.small != null
             ? user.photos.small
             : defaultPhoto
     }
 
-    let getInputClassName = (pageNumber) => {
+    const getInputClassName = (pageNumber) => {
         return props.currentPage === pageNumber
             ? s.selectedPage
             : null
     }
 
-    let getFollowingButton = (user) => {
+    const getFollowingButton = (user) => {
         return (<> {
             user.followed
                 ? <button
