@@ -1,12 +1,12 @@
 import React from 'react'
 import MyPostsContainer from './MyPosts/MyPostsContainer'
-import ProfileInfoComponent from './ProfileInfo/ProfileInfo'
+import ProfileInfo from './ProfileInfo/ProfileInfo'
 
-const ProfileComponent = (props) => {
+const Profile = (props) => {
     return (<>
-        <ProfileInfoComponent profile={props.profile} />
+        <ProfileInfo profile={props.profile} />
         <MyPostsContainer />
     </>)
 }
 
-export default ProfileComponent
+export default Profile

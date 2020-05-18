@@ -3,7 +3,7 @@ import defaultPhoto from '../../../assets/images/defaultPhoto.png'
 import Preloader from '../../common/Preloader/Preloader'
 import s from './ProfileInfo.module.css'
 
-const ProfileInfoComponent = (props) => {
+const ProfileInfo = (props) => {
     if (!props.profile) {
         return <Preloader />
     }
@@ -25,4 +25,4 @@ const ProfileInfoComponent = (props) => {
     </>)
 }
 
-export default ProfileInfoComponent
+export default ProfileInfo

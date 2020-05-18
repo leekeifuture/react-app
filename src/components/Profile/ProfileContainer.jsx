@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {socialNetworkApi} from '../../api/socialNetworkApi'
+import {withAuthRedirect} from '../../hoc/withAuthRedirect'
 import {setUserProfile} from '../../redux/profile-reducer'
 import Profile from './Profile'
 
@@ -26,12 +27,14 @@ class ProfileContainer extends React.Component {
     }
 }
 
-let mapStateToProps = (state) => ({
+const mapStateToProps = (state) => ({
     profile: state.profilePage.profile
 })
 
-let mapDispatchToProps = {
+const mapDispatchToProps = {
     setUserProfile
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfileContainer))
+const ProfileRedirectComponent = withAuthRedirect(ProfileContainer)
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfileRedirectComponent))

@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {withAuthRedirect} from '../../hoc/withAuthRedirect'
 import {
     addToFollowingUsers,
     followUser,
@@ -53,4 +54,4 @@ let mapDispatchToProps = {
     unfollowUser
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
+export default withAuthRedirect(connect(mapStateToProps, mapDispatchToProps)(UsersContainer))

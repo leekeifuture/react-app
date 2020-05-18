@@ -3,22 +3,19 @@ import DialogComponent from './DialogItem/DialogItem'
 import s from './Dialogs.module.css'
 import MessageComponent from './Message/Message'
 
-const DialogsComponent = (props) => {
-    let state = props.dialogsPage
-
-    let dialogsElements = state.dialogsData.map(dialog =>
+const Dialogs = (props) => {
+    const dialogsElements = props.dialogsPage.dialogsData.map(dialog =>
         <DialogComponent id={dialog.id} name={dialog.name} key={dialog.id} />
     )
 
-    let messagesElements = state.messagesData.map(message =>
-        <MessageComponent id={message.id} text={message.text}
+    const messagesElements = props.dialogsPage.messagesData.map(message =>
+        <MessageComponent id={message.id}
+                          text={message.text}
                           key={message.id}
         />
     )
 
-    let newMessageBody = state.newMessageBody
-
-    let onSendMessageClick = () => {
+    const onSendMessageClick = () => {
         props.sendMessage()
     }
 
@@ -32,7 +29,7 @@ const DialogsComponent = (props) => {
                 <div>
                     <div>
                         <textarea placeholder="Enter new message"
-                                  value={newMessageBody}
+                                  value={props.dialogsPage.newMessageBody}
                                   onChange={event =>
                                       props.updateNewMessageBody(event.target.value)} />
                     </div>
@@ -46,4 +43,4 @@ const DialogsComponent = (props) => {
     )
 }
 
-export default DialogsComponent
+export default Dialogs
