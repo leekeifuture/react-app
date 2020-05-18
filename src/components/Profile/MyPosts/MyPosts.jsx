@@ -3,16 +3,6 @@ import s from './MyPosts.module.css'
 import PostComponent from './Post/Post'
 
 const MyPostsComponent = (props) => {
-    const postsElements = props.postsData.map(post =>
-        <PostComponent
-            id={post.id}
-            text={post.text}
-            likesCount={post.likesCount}
-            dislikesCount={post.dislikesCount}
-            key={post.id}
-        />
-    )
-
     const newPostElement = React.createRef()
 
     const onPostChange = () => {
@@ -37,7 +27,15 @@ const MyPostsComponent = (props) => {
                 </div>
             </div>
             <div className={s.posts}>
-                {postsElements}
+                {props.postsData.map(post =>
+                    <PostComponent
+                        id={post.id}
+                        text={post.text}
+                        likesCount={post.likesCount}
+                        dislikesCount={post.dislikesCount}
+                        key={post.id}
+                    />
+                )}
             </div>
         </div>
     )

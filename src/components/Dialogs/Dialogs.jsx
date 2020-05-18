@@ -4,17 +4,6 @@ import s from './Dialogs.module.css'
 import MessageComponent from './Message/Message'
 
 const Dialogs = (props) => {
-    const dialogsElements = props.dialogsPage.dialogsData.map(dialog =>
-        <DialogComponent id={dialog.id} name={dialog.name} key={dialog.id} />
-    )
-
-    const messagesElements = props.dialogsPage.messagesData.map(message =>
-        <MessageComponent id={message.id}
-                          text={message.text}
-                          key={message.id}
-        />
-    )
-
     const onSendMessageClick = () => {
         props.sendMessage()
     }
@@ -22,10 +11,22 @@ const Dialogs = (props) => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                {dialogsElements}
+                {props.dialogsPage.dialogsData.map(dialog =>
+                    <DialogComponent id={dialog.id}
+                                     name={dialog.name}
+                                     key={dialog.id}
+                    />
+                )}
             </div>
             <div className={s.messages}>
-                <div>{messagesElements}</div>
+                <div>
+                    {props.dialogsPage.messagesData.map(message =>
+                        <MessageComponent id={message.id}
+                                          text={message.text}
+                                          key={message.id}
+                        />
+                    )}
+                </div>
                 <div>
                     <div>
                         <textarea placeholder="Enter new message"
