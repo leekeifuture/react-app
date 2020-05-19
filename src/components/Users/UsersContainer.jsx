@@ -58,5 +58,4 @@ const mapDispatchToProps = {
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),
     withAuthRedirect
-)
-(UsersContainer)
+)(UsersContainer)
