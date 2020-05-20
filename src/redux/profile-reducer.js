@@ -96,10 +96,12 @@ export const getStatus = (userId) => (dispatch) => {
             }
         )
 }
-export const updateStatus = (userId) => (dispatch) => {
-    socialNetworkApi.updateStatus(userId)
+export const updateStatus = (status) => (dispatch) => {
+    socialNetworkApi.updateStatus(status)
         .then(data => {
-                dispatch(setStatus(data))
+                if (data.resultCode === 0) {
+                    dispatch(setStatus(status))
+                }
             }, error => {
                 console.error(error)
             }
