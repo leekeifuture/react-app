@@ -2,37 +2,42 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {compose} from 'redux'
-import {socialNetworkApi} from '../../api/socialNetworkApi'
-import {setUserProfile} from '../../redux/profile-reducer'
+import {
+    getStatus,
+    getUserProfile,
+    setUserProfile,
+    updateStatus
+} from '../../redux/profile-reducer'
 import Profile from './Profile'
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
         const userId = this.props.match.params.userId
             ? this.props.match.params.userId
-            : 2
-        socialNetworkApi.getProfileData(userId)
-            .then(data => {
-                    this.props.setUserProfile(data)
-                }, error => {
-                    console.error(error)
-                }
-            )
+            : 7712
+        this.props.getUserProfile(userId)
+        this.props.getStatus(userId)
     }
 
     render() {
         return (
-            <Profile {...this.props} profile={this.props.profile} />
+            <Profile profile={this.props.profile}
+                     status={this.props.status}
+                     updateStatus={this.props.updateStatus} />
         )
     }
 }
 
 const mapStateToProps = (state) => ({
-    profile: state.profilePage.profile
+    profile: state.profilePage.profile,
+    status: state.profilePage.status
 })
 
 const mapDispatchToProps = {
-    setUserProfile
+    getStatus,
+    getUserProfile,
+    setUserProfile,
+    updateStatus
 }
 
 export default compose(

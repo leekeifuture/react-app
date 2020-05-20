@@ -3,10 +3,6 @@ import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 
 export const withAuthRedirect = (Component) => {
-    const mapStateToPropsForRedirect = (state) => ({
-        isAuth: state.authPage.isAuth
-    })
-
     class RedirectComponent extends React.Component {
         render() {
             if (!this.props.isAuth) {
@@ -15,6 +11,10 @@ export const withAuthRedirect = (Component) => {
             return <Component {...this.props} />
         }
     }
+
+    const mapStateToPropsForRedirect = (state) => ({
+        isAuth: state.authPage.isAuth
+    })
 
     return connect(mapStateToPropsForRedirect)(RedirectComponent)
 }

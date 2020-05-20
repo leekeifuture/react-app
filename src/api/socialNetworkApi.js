@@ -28,5 +28,13 @@ export const socialNetworkApi = {
     unfollowUser(userId) {
         return axiosInstance.delete(`/follow/${userId}`)
             .then(response => response.data)
+    },
+    getStatus(userId) {
+        return axiosInstance.get(`/profile/status/${userId}`)
+            .then(response => response.data)
+    },
+    updateStatus(status) {
+        return axiosInstance.put(`/profile/status`, {status})
+            .then(response => response.data)
     }
 }

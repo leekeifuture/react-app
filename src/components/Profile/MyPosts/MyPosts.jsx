@@ -7,7 +7,7 @@ const MyPostsComponent = (props) => {
 
     const onPostChange = () => {
         const newText = newPostElement.current.value
-        props.updateNewPostData(newText)
+        props.setNewPostData(newText)
     }
 
     return (
