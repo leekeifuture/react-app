@@ -11,7 +11,7 @@ const Dialogs = (props) => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                {props.dialogsPage.dialogsData.map(dialog =>
+                {props.dialogsReducer.dialogsData.map(dialog =>
                     <DialogComponent id={dialog.id}
                                      name={dialog.name}
                                      key={dialog.id}
@@ -20,7 +20,7 @@ const Dialogs = (props) => {
             </div>
             <div className={s.messages}>
                 <div>
-                    {props.dialogsPage.messagesData.map(message =>
+                    {props.dialogsReducer.messagesData.map(message =>
                         <MessageComponent id={message.id}
                                           text={message.text}
                                           key={message.id}
@@ -30,7 +30,7 @@ const Dialogs = (props) => {
                 <div>
                     <div>
                         <textarea placeholder="Enter new message"
-                                  value={props.dialogsPage.newMessageBody}
+                                  value={props.dialogsReducer.newMessageBody}
                                   onChange={event =>
                                       props.updateNewMessageBody(event.target.value)} />
                     </div>

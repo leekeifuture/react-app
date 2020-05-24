@@ -13,7 +13,7 @@ export const withAuthRedirect = (Component) => {
     }
 
     const mapStateToPropsForRedirect = (state) => ({
-        isAuth: state.authPage.isAuth
+        isAuth: state.authReducer.isAuth
     })
 
     return connect(mapStateToPropsForRedirect)(RedirectComponent)

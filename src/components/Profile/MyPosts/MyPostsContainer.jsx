@@ -4,8 +4,8 @@ import MyPostsComponent from './MyPosts'
 
 const mapStateToProps = (state) => {
     return {
-        postsData: state.profilePage.postsData,
-        newPostData: state.profilePage.newPostData
+        postsData: state.profileReducer.postsData,
+        newPostData: state.profileReducer.newPostData
     }
 }
 

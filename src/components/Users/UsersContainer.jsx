@@ -40,12 +40,12 @@ class UsersContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    users: state.usersPage.users,
-    pageSize: state.usersPage.pageSize,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    currentPage: state.usersPage.currentPage,
-    isFetching: state.usersPage.isFetching,
-    followingUsers: state.usersPage.followingUsers
+    users: state.usersReducer.users,
+    pageSize: state.usersReducer.pageSize,
+    totalUsersCount: state.usersReducer.totalUsersCount,
+    currentPage: state.usersReducer.currentPage,
+    isFetching: state.usersReducer.isFetching,
+    followingUsers: state.usersReducer.followingUsers
 })
 
 const mapDispatchToProps = {

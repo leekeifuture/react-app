@@ -7,11 +7,11 @@ import sidebarReducer from './sidebar-reducer'
 import usersReducer from './users-reducer'
 
 const reducers = combineReducers({
-    profilePage: profileReducer,
-    dialogsPage: dialogsReducer,
-    usersPage: usersReducer,
-    sidebarPage: sidebarReducer,
-    authPage: authReducer
+    profileReducer,
+    dialogsReducer,
+    usersReducer,
+    sidebarReducer,
+    authReducer
 })
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleware))
