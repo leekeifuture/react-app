@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+    <configuration name="react-app-debug" default="false"
+        type="JavascriptDebugType" uri="http://localhost:3000">
+        <method v="2" />
+    </configuration>
+</component>
