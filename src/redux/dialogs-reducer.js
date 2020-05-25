@@ -17,7 +17,7 @@ const dialogsReducer = (state = initialState, action) => {
     if (action.type === UPDATE_NEW_MESSAGE_BODY) {
         return {
             ...state,
-            newMessageBody: action.body
+            newMessageBody: action.event.target.value
         }
     } else if (action.type === SEND_MESSAGE) {
         const newMessageText = state.newMessageBody.trim()
@@ -39,12 +39,12 @@ const dialogsReducer = (state = initialState, action) => {
     return state
 }
 
-export const sendMessageActionCreator = () => ({
+export const sendMessage = () => ({
     type: SEND_MESSAGE
 })
-export const updateNewMessageBodyActionCreator = (body) => ({
+export const updateNewMessageBody = (event) => ({
     type: UPDATE_NEW_MESSAGE_BODY,
-    body: body
+    event
 })
 
 export default dialogsReducer

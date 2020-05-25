@@ -1,45 +1,20 @@
 import React from 'react'
-import DialogComponent from './DialogItem/DialogItem'
+import Dialog from './DialogItem/Dialog'
 import s from './Dialogs.module.css'
-import MessageComponent from './Message/Message'
+import MessagesContainer from './Messages/MessagesContainer'
 
 const Dialogs = (props) => {
-    const onSendMessageClick = () => {
-        props.sendMessage()
-    }
-
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                {props.dialogsReducer.dialogsData.map(dialog =>
-                    <DialogComponent id={dialog.id}
-                                     name={dialog.name}
-                                     key={dialog.id}
+                {props.dialogsData.map(dialog =>
+                    <Dialog id={dialog.id}
+                            name={dialog.name}
+                            key={dialog.id}
                     />
                 )}
             </div>
-            <div className={s.messages}>
-                <div>
-                    {props.dialogsReducer.messagesData.map(message =>
-                        <MessageComponent id={message.id}
-                                          text={message.text}
-                                          key={message.id}
-                        />
-                    )}
-                </div>
-                <div>
-                    <div>
-                        <textarea placeholder="Enter new message"
-                                  value={props.dialogsReducer.newMessageBody}
-                                  onChange={event =>
-                                      props.updateNewMessageBody(event.target.value)} />
-                    </div>
-                    <div>
-                        <input type="button" value="Send message"
-                               onClick={onSendMessageClick} />
-                    </div>
-                </div>
-            </div>
+            <MessagesContainer />
         </div>
     )
 }
