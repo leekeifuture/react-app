@@ -2,8 +2,7 @@ import React from 'react'
 import {Field} from 'redux-form'
 
 const LoginForm = (props) => {
-    return (
-        <form onSubmit={props.handleSubmit}>
+    return (<form onSubmit={props.handleSubmit}>
             <div>
                 <Field placeholder="Login"
                        component="input"
@@ -23,8 +22,7 @@ const LoginForm = (props) => {
             <div>
                 <button>Login</button>
             </div>
-        </form>
-    )
+        </form>)
 }
 
 export default LoginForm
