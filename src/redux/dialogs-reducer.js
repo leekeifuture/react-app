@@ -20,7 +20,7 @@ const dialogsReducer = (state = initialState, action) => {
             newMessageBody: action.event.target.value
         }
     } else if (action.type === SEND_MESSAGE) {
-        const newMessageText = state.newMessageBody.trim()
+        const newMessageText = action.newMessageBody.trim()
 
         if (newMessageText.length > 0) {
             const messagesData = state.messagesData
@@ -30,8 +30,7 @@ const dialogsReducer = (state = initialState, action) => {
 
             return {
                 ...state,
-                messagesData: [...state.messagesData, newMessage],
-                newMessageBody: ''
+                messagesData: [...state.messagesData, newMessage]
             }
         }
     }
@@ -39,12 +38,9 @@ const dialogsReducer = (state = initialState, action) => {
     return state
 }
 
-export const sendMessage = () => ({
-    type: SEND_MESSAGE
-})
-export const updateNewMessageBody = (event) => ({
-    type: UPDATE_NEW_MESSAGE_BODY,
-    event
+export const sendMessage = (newMessageBody) => ({
+    type: SEND_MESSAGE,
+    newMessageBody
 })
 
 export default dialogsReducer

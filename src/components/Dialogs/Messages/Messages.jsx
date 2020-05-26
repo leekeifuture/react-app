@@ -1,6 +1,7 @@
 import React from 'react'
 import Message from './Message/Message'
 import s from './Message/Message.module.css'
+import MessagesReduxForm from './MessagesForm/MessagesReduxForm'
 
 const Messages = (props) => {
     return (<div className={s.messages}>
@@ -12,17 +13,8 @@ const Messages = (props) => {
                 />
             )}
         </div>
-        <div>
-            <div>
-                <textarea placeholder="Enter new message"
-                          value={props.newMessageBody}
-                          onChange={props.updateNewMessageBody} />
-            </div>
-            <div>
-                <input type="button" value="Send message"
-                       onClick={props.sendMessage} />
-            </div>
-        </div>
+        <MessagesReduxForm
+            onSubmit={formData => props.sendMessage(formData.newMessageBody)} />
     </div>)
 }
 

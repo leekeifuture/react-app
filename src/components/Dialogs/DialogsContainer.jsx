@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
 import {withAuthRedirect} from '../../hoc/withAuthRedirect'
-import {sendMessage, updateNewMessageBody} from '../../redux/dialogs-reducer'
 import Dialogs from './Dialogs'
 
 class DialogsContainer extends React.Component {
@@ -17,10 +16,7 @@ const mapStateToProps = (state) => ({
     dialogsData: state.dialogsReducer.dialogsData
 })
 
-const mapDispatchToProps = {
-    sendMessage,
-    updateNewMessageBody
-}
+const mapDispatchToProps = {}
 
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),
