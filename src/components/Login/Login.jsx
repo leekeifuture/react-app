@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginReduxForm from './LoginReduxForm'
+import LoginReduxForm from './LoginForm/LoginReduxForm'
 
 const Login = () => {
     const onSubmit = (formData) => {
