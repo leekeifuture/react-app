@@ -1,7 +1,6 @@
 import {socialNetworkApi} from '../api/socialNetworkApi'
 
 const ADD_POST = 'ADD_POST'
-const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
 const SET_STATUS = 'SET_STATUS'
 
@@ -26,14 +25,9 @@ const initialState = {
 }
 
 const profileReducer = (state = initialState, action) => {
-    if (action.type === UPDATE_NEW_POST_TEXT) {
-        return {
-            ...state,
-            newPostData: action.newText
-        }
-    } else if (action.type === ADD_POST) {
+    if (action.type === ADD_POST) {
         const postsData = state.postsData
-        const newPostData = state.newPostData.trim()
+        const newPostData = action.newPostText.trim()
 
         if (newPostData.length > 0) {
             const currentId = postsData[postsData.length - 1]['id']
@@ -65,11 +59,8 @@ const profileReducer = (state = initialState, action) => {
     return state
 }
 
-export const addPost = () => ({
-    type: ADD_POST
-})
-export const setNewPost = (newText) => ({
-    type: UPDATE_NEW_POST_TEXT, newText
+export const addPost = (formData) => ({
+    type: ADD_POST, newPostText: formData.newPostText
 })
 export const setUserProfile = (profile) => ({
     type: SET_USER_PROFILE, profile

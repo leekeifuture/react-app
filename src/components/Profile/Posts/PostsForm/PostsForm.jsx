@@ -1,18 +1,18 @@
 import React from 'react'
 import {Field} from 'redux-form'
 
-const MessagesForm = (props) => {
+const PostsForm = (props) => {
     return (<form onSubmit={props.handleSubmit}>
         <div>
-            <Field placeholder="Enter new message"
+            <Field placeholder="Write post text"
                    component="textarea"
-                   name="newMessageBody"
+                   name="newPostText"
             />
         </div>
         <div>
-            <button>Send message</button>
+            <button>Add post</button>
         </div>
     </form>)
 }
 
-export default MessagesForm
+export default PostsForm
