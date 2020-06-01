@@ -15,12 +15,14 @@ const ProfileInfo = (props) => {
             : defaultPhoto
     }
 
-    return (<div className={s.descriptionBlock}>
-        <img src={getUserPhoto(props.profile)} alt="User" />
-        <ProfileStatus status={props.status}
-                       updateStatus={props.updateStatus} />
-        <div>{props.profile.lookingForAJobDescription}</div>
-    </div>)
+    return (
+        <div className={s.descriptionBlock}>
+            <img src={getUserPhoto(props.profile)} alt="User" />
+            <ProfileStatus status={props.status}
+                           updateStatus={props.updateStatus} />
+            <div>{props.profile.lookingForAJobDescription}</div>
+        </div>
+    )
 }
 
 export default ProfileInfo
