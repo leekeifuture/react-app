@@ -45,7 +45,8 @@ const Users = (props) => {
                         type="button"
                         value={pageNumber}
                         onClick={event => props.onPageChanged(pageNumber)}
-                        key={pageNumber} />
+                        key={pageNumber}
+                    />
                 )
             })}
         </div>
